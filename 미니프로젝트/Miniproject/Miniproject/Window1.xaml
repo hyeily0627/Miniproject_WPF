@@ -1,0 +1,68 @@
+﻿<Window x:Class="Miniproject.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Miniproject"
+        mc:Ignorable="d"
+        x:Name="Busansearch" Title="검색화면" Height="450" Width="800" Loaded="Busansearch_Loaded">
+
+    <!-- 바깥쪽 그리드 영역설정-->
+    <Grid Background="DeepSkyBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="93*" />
+            <ColumnDefinition Width="440*"/>
+            <ColumnDefinition Width="267*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <!-- 검색결과 영역 -->
+        <DataGrid x:Name="GrdResult" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5"
+          IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" 
+          Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
+          Grid.ColumnSpan="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding MAIN_TITLE}" Header="콘텐츠명" FontWeight="Bold" />
+                <DataGridTextColumn Binding="{Binding GUGUN_NM}" Header="구/군" />
+                <DataGridTextColumn Binding="{Binding TITLE}" Header="제목" />
+                <DataGridTextColumn Binding="{Binding SUBTITLE}" Header="부제목" />
+                <DataGridTextColumn Binding="{Binding ADDR1	}" Header="주소" />
+                <DataGridTextColumn Binding="{Binding CNTCT_TEL}" Header="연락처" />
+                <DataGridTextColumn Binding="{Binding HOMEPAGE_URL}" Header="홈페이지" />
+                <DataGridTextColumn Binding="{Binding TRFC_INFO}" Header="교통정보" />
+                <DataGridTextColumn Binding="{Binding USAGE_AMOUNT}" Header="이용요금" />
+                <DataGridTextColumn Binding="{Binding MIDDLE_SIZE_RM1}" Header="편의시설" />
+                <DataGridTextColumn Binding="{Binding ITEMCNTNTS}" Header="상세정보" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- 포스터 영역 -->
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="440,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="85*"/>
+                <ColumnDefinition Width="182*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="포스터" Margin="10,10,10,25" Background="White" Foreground="White" Grid.ColumnSpan="2">
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <Border Padding="5">
+                            <TextBlock Text="{Binding}" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+                <Image x:Name="ImgPoster" Source="No_Picture.png" Margin="15,0,15,0" Height="276" />
+            </GroupBox>
+        </Grid>
+
+        <!-- 맨하단 상태바 위치 -->
+        <StatusBar Grid.Row="1" Grid.ColumnSpan="3">
+            <StatusBarItem Content="부산광역시_부산명소정보 서비스" />
+            <Separator Style="{StaticResource MahApps.Styles.Separator.StatusBar}" />
+            <StatusBarItem x:Name="StsResult" />
+        </StatusBar>
+
+    </Grid>
+</Window>

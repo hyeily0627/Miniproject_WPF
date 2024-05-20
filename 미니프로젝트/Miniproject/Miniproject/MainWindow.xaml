@@ -1,0 +1,65 @@
+﻿<mah:MetroWindow 
+    x:Class="Miniproject.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Miniproject"
+    mc:Ignorable="d"
+    Title="" Height="450" Width="800"
+    WindowStartupLocation="CenterScreen"
+    Background="DeepSkyBlue">
+    <mah:MetroWindow.IconTemplate >
+        <DataTemplate>
+            <iconPack:PackIconFontAwesome Kind="MapMarkedAltSolid" Margin="10,7,0,0" Foreground="White" />
+        </DataTemplate>
+    </mah:MetroWindow.IconTemplate>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <!-- 제목 -->
+        <TextBlock Grid.Row="0" Text="부산광역시_부산명소정보 서비스" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" 
+                   Margin="0,1,0,18" Foreground="White" Width="426"
+                   FontFamily="nanumgothic"/>
+
+        <!-- 이미지 박스 -->
+
+        <Image x:Name="ImgPoster" Source="KOREA.jpg" Margin="-122,45,-114,31" Grid.RowSpan="3"/>
+
+
+        <!-- 검색 영역 -->
+        <Grid Grid.Row="2" HorizontalAlignment="Center" Width="508" Margin="0,44,0,1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="147*"/>
+                <ColumnDefinition Width="271*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="TxtAttractionName" Grid.Column="0" Margin="16,15,2,-16" FontSize="14"
+                     mah:TextBoxHelper.Watermark="검색할 부산지역의 여행지 입력"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"
+                     KeyDown="TxtAttractionName_KeyDown"
+                     BorderBrush="White" Foreground="White" Background="DeepSkyBlue" Width="400" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="BtnSearch" Grid.Column="2" Margin="7,9,3,-24" FontSize="14" Content="검색"
+                    Click="BtnSearch_Click" Background="White" Foreground="DeepSkyBlue"
+                    Height="50" Width="80" FontFamily="nanumgothic" FontWeight="Bold">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" Margin="5"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>
