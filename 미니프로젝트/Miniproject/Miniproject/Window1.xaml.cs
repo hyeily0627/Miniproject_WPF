@@ -59,8 +59,6 @@ namespace Miniproject
                 var header = jsonResult["getAttractionKr"]["header"];
                 var code = Convert.ToInt32(header["code"]);
 
-                if (code == 00)
-                {
                     var data = jsonResult["getAttractionKr"]["item"];
                     var jsonArray = data as JArray; // json자체에서 []안에 들어간 배열데이터만 JArray 변환가능
 
@@ -70,25 +68,24 @@ namespace Miniproject
                         attraction.Add(new Attraction()
                         {
                         
-                            MAIN_TITLE = Convert.ToString(item["main_title"]),
-                            GUGUN_NM = Convert.ToString(item["gugun_nm"]),
-                            LAT = Convert.ToDouble(item["lat"]),
-                            LNG = Convert.ToDouble(item["lng"]),
-                            PLACE = Convert.ToString(item["place"]),
-                            TITLE = Convert.ToString(item["title"]),
-                            SUBTITLE = Convert.ToString(item["subtitle"]),
-                            ADDR1 = Convert.ToString(item["addr1"]),
-                            CNTCT_TEL = Convert.ToString(item["cntct_tel"]),
-                            HOMEPAGE_URL = Convert.ToString(item["homepage_url"]),
-                            TRFC_INFO = Convert.ToString(item["trfc_info"]),
-                            USAGE_AMOUNT = Convert.ToString(item["usage_amount"]),
-                            MIDDLE_SIZE_RM1 = Convert.ToString(item["middle_size_rm1"]),
-                            ITEMCNTNTS = Convert.ToString(item["itemcntnts"]),
+                            MAIN_TITLE = Convert.ToString(item["MAIN_TITLE"]),
+                            GUGUN_NM = Convert.ToString(item["GUGUN_NM"]),
+                            LAT = Convert.ToDouble(item["LAT"]),
+                            LNG = Convert.ToDouble(item["LNG"]),
+                            PLACE = Convert.ToString(item["PLACE"]),
+                            TITLE = Convert.ToString(item["TITLE"]),
+                            SUBTITLE = Convert.ToString(item["SUBTITLE"]),
+                            ADDR1 = Convert.ToString(item["ADDR1"]),
+                            CNTCT_TEL = Convert.ToString(item["CNTCT_TEL"]),
+                            HOMEPAGE_URL = Convert.ToString(item["HOMEPAGE_URL"]),
+                            TRFC_INFO = Convert.ToString(item["TRFC_INFO"]),
+                            USAGE_AMOUNT = Convert.ToString(item["USAGE_AMOUNT"]),
+                            MIDDLE_SIZE_RM1 = Convert.ToString(item["MIDDLE_SIZE_RM1"]),
+                            ITEMCNTNTS = Convert.ToString(item["ITEMCNTNTS"]),
                         });
                     }
                     this.DataContext = attraction;
                     StsResult.Content = $"OpenAPI {attraction.Count}건 조회완료!";
-                }
              
 
         }

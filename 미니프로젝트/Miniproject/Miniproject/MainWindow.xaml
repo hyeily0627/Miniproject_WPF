@@ -26,7 +26,7 @@
 
         <!-- 제목 -->
         <TextBlock Grid.Row="0" Text="부산광역시_부산명소정보 서비스" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" 
-                   Margin="0,1,0,18" Foreground="White" Width="426"
+                   Margin="0,1,0,18" Foreground="White" Width="447"
                    FontFamily="nanumgothic"/>
 
         <!-- 이미지 박스 -->
