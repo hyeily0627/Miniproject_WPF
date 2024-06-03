@@ -5,17 +5,16 @@
 
 ---------------------------------------------------------------
 
+# 2024-05-13 
+- 검색을 위한 첫 페이지 생성
 ## MainWindow.xaml  
 
 ![MainWindow.xaml](https://raw.githubusercontent.com/hyeily0627/Miniproject_WPF/main/images/MainWindow.PNG)
 
-![warning](https://raw.githubusercontent.com/hyeily0627/Miniproject_WPF/main/images/warning.PNG)
-
-# 2024-05-13 
-- 검색을 위한 첫 페이지 생성
-
 # 2024-05-14 
 - 검색어 미입력시 경고 창 생성
+- 
+![warning](https://raw.githubusercontent.com/hyeily0627/Miniproject_WPF/main/images/warning.PNG)
 
 ----------------------------------------------------------------
 ## Window1.xaml
@@ -39,9 +38,12 @@
     - (🚨미구현) 포스터 이미지 연결(URL 연결인듯)
 - 포스터 영역과 검색결과 영역 겹치는 오류 잡기
 
+![Window1.xaml](https://raw.githubusercontent.com/hyeily0627/Miniproject_WPF/main/images/Window1_2.PNG)
+
 # 2024-06-03
 - 포스터 영역 사진 띄우기 
-- 포스터 영역과 검색결과 영역 겹치는 오류 잡기 => 그리드 설정 문제 잘보고 하자! 
+- 포스터 영역과 검색결과 영역 겹치는 오류 잡기 
   - 강사님이 잡아주셨다 최고ㅎㅎ(oﾟvﾟ)ノ
+  - => 그리드 설정 문제❗❗ 
 - API 연결 
     - (🚨미구현) 검색된 내용과 일치하는 자료만 API 검색 되도록 
