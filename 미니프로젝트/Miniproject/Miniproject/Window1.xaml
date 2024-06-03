@@ -5,25 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Miniproject"
         mc:Ignorable="d"
-        x:Name="Busansearch" Title="검색화면" Height="450" Width="800" Loaded="Busansearch_Loaded">
+        x:Name="Busansearch" Title="검색화면" Height="450" Width="1400" Loaded="Busansearch_Loaded">
 
     <!-- 바깥쪽 그리드 영역설정-->
     <Grid Background="DeepSkyBlue">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="93*" />
-            <ColumnDefinition Width="440*"/>
-            <ColumnDefinition Width="267*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="600" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*" />
+            <RowDefinition Height="1*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
         <!-- 검색결과 영역 -->
         <DataGrid x:Name="GrdResult" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5"
           IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" 
-          Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
-          Grid.ColumnSpan="2" >
+          Style="{StaticResource MahApps.Styles.DataGrid.Azure}" SelectionChanged="GrdResult_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding MAIN_TITLE}" Header="콘텐츠명" FontWeight="Bold" />
                 <DataGridTextColumn Binding="{Binding GUGUN_NM}" Header="구/군" />
@@ -40,12 +38,8 @@
         </DataGrid>
 
         <!-- 포스터 영역 -->
-        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="440,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="85*"/>
-                <ColumnDefinition Width="182*"/>
-            </Grid.ColumnDefinitions>
-            <GroupBox Header="포스터" Margin="10,10,10,25" Background="White" Foreground="White" Grid.ColumnSpan="2">
+        <Grid Grid.Row="0" Grid.Column="1">
+            <GroupBox Header="포스터" Background="White" Foreground="White" Margin="10">
                 <GroupBox.HeaderTemplate>
                     <DataTemplate>
                         <Border Padding="5">

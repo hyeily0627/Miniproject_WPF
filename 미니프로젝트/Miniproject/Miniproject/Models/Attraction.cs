@@ -24,6 +24,8 @@ namespace Miniproject.Models
         public string MIDDLE_SIZE_RM1 { get; set; } // 편의시설
         public string ITEMCNTNTS { get; set; } // 상세내용
 
+        public string MAIN_IMG_NORMAL { get; set; } // 메인이미지 URL
+
 
         public static readonly string INSERT_QUERY = @"INSERT INTO [dbo].[Busan]
                                                        ([MAIN_TITLE]
@@ -39,7 +41,8 @@ namespace Miniproject.Models
                                                        ,[TRFC_INFO]
                                                        ,[USAGE_AMOUNT]
                                                        ,[MIDDLE_SIZE_RM1]
-                                                       ,[ITEMCNTNTS])
+                                                       ,[ITEMCNTNTS]
+                                                        ,[MAIN_IMG_NORMAL])
                                                  VALUES
                                                        (@MAIN_TITLE
                                                        ,@GUGUN_NM
@@ -54,7 +57,8 @@ namespace Miniproject.Models
                                                        ,@TRFC_INFO
                                                        ,@USAGE_AMOUNT
                                                        ,@MIDDLE_SIZE_RM1
-                                                       ,@ITEMCNTNTS";
+                                                       ,@ITEMCNTNTS
+                                                        ,@MAIN_IMG_NORMAL)";
 
         public static readonly string SELECT_QUERY = @"SELECT [MAIN_TITLE]
                                                       ,[GUGUN_NM]
@@ -70,6 +74,7 @@ namespace Miniproject.Models
                                                       ,[USAGE_AMOUNT]
                                                       ,[MIDDLE_SIZE_RM1]
                                                       ,[ITEMCNTNTS]
+                                                      ,[MAIN_IMG_NORMAL]
                                                   FROM [dbo].[Busan]";
 
         //public static readonly string GETDATE_QUERY = @"";

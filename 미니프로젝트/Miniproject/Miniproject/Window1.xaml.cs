@@ -82,6 +82,7 @@ namespace Miniproject
                             USAGE_AMOUNT = Convert.ToString(item["USAGE_AMOUNT"]),
                             MIDDLE_SIZE_RM1 = Convert.ToString(item["MIDDLE_SIZE_RM1"]),
                             ITEMCNTNTS = Convert.ToString(item["ITEMCNTNTS"]),
+                            MAIN_IMG_NORMAL = Convert.ToString(item["MAIN_IMG_NORMAL"])
                         });
                     }
                     this.DataContext = attraction;
@@ -90,5 +91,27 @@ namespace Miniproject
 
         }
 
+        private void GrdResult_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var item = e.AddedItems[0] as Attraction;
+                var poster_url = item.MAIN_IMG_NORMAL;
+
+                if (string.IsNullOrEmpty(poster_url))
+                {
+                    ImgPoster.Source = new BitmapImage(new Uri("/No_Picture.png", UriKind.RelativeOrAbsolute));
+                }
+                else
+                {
+                    ImgPoster.Source = new BitmapImage(new Uri($"{poster_url}", UriKind.Absolute));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"{ex.Message}");
+            }
+        }
     }
 }

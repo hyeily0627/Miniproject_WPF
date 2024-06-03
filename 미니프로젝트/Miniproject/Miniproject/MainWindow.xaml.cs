@@ -35,7 +35,7 @@ namespace Miniproject
         {
             if (string.IsNullOrEmpty(TxtAttractionName.Text))
             {
-                await this.ShowMessageAsync("검색", "검색할 영화명을 입력하세요!!");
+                await this.ShowMessageAsync("검색", "검색할 관광지명을 입력하세요!!");
                 return;
             }
             var mapwindow = new Window1();
