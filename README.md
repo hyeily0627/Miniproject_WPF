@@ -6,7 +6,9 @@
 ---------------------------------------------------------------
 
 ## MainWindow.xaml  
+
 ![MainWindow.xaml](https://raw.githubusercontent.com/hyeily0627/Miniproject_WPF/main/images/MainWindow.PNG)
+
 ![warning](https://raw.githubusercontent.com/hyeily0627/Miniproject_WPF/main/images/warning.PNG)
 
 # 2024-05-13 
@@ -17,6 +19,7 @@
 
 ----------------------------------------------------------------
 ## Window1.xaml
+
 ![Window1.xaml](https://raw.githubusercontent.com/hyeily0627/Miniproject_WPF/main/images/Window1.PNG)
 
 # 2024-05-16 
