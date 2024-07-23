@@ -38,8 +38,13 @@ namespace Miniproject
                 await this.ShowMessageAsync("검색", "검색할 관광지명을 입력하세요!!");
                 return;
             }
-            var mapwindow = new Window1();
+            var searchKeyword = TxtAttractionName.Text;
+
+            // 검색어를 Window1으로 전달
+            var mapwindow = new Window1(searchKeyword);
             mapwindow.ShowDialog();
+
+
         }
 
         private void TxtAttractionName_KeyDown(object sender, KeyEventArgs e)

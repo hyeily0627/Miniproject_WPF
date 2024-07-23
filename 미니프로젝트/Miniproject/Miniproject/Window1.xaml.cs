@@ -1,4 +1,5 @@
-﻿using Miniproject.Models;
+﻿using Microsoft.VisualBasic.Devices;
+using Miniproject.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,11 @@ namespace Miniproject
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1()
+        private string searchKeyword;
+        public Window1(string keyword)
         {
             InitializeComponent();
+            searchKeyword = keyword;
         }
 
         private async void Busansearch_Loaded(object sender, RoutedEventArgs e)
@@ -85,9 +88,16 @@ namespace Miniproject
                             MAIN_IMG_NORMAL = Convert.ToString(item["MAIN_IMG_NORMAL"])
                         });
                     }
-                    this.DataContext = attraction;
-                    StsResult.Content = $"OpenAPI {attraction.Count}건 조회완료!";
-             
+            var filteredAttraction = attraction.Where(a => a.MAIN_TITLE.Contains(searchKeyword)).ToList();
+
+            // 데이터 컨텍스트에 필터링된 리스트 설정
+            this.DataContext = filteredAttraction;
+            StsResult.Content = $"OpenAPI {filteredAttraction.Count}건 조회 완료!";
+            if(filteredAttraction.Count == 0)
+            {
+                MessageBox.Show("검색목록이 없습니다");
+            }
+
 
         }
 
@@ -96,22 +106,29 @@ namespace Miniproject
             try
             {
                 var item = e.AddedItems[0] as Attraction;
-                var poster_url = item.MAIN_IMG_NORMAL;
-
-                if (string.IsNullOrEmpty(poster_url))
+                if (item != null)
                 {
-                    ImgPoster.Source = new BitmapImage(new Uri("/No_Picture.png", UriKind.RelativeOrAbsolute));
-                }
-                else
-                {
-                    ImgPoster.Source = new BitmapImage(new Uri($"{poster_url}", UriKind.Absolute));
-                }
+                    var poster_url = item.MAIN_IMG_NORMAL;
+                    if (string.IsNullOrEmpty(poster_url))
+                    {
+                        ImgPoster.Source = new BitmapImage(new Uri("/No_Picture.png", UriKind.RelativeOrAbsolute));
+                    }
+                    else
+                    {
+                        ImgPoster.Source = new BitmapImage(new Uri(poster_url, UriKind.Absolute));
+                    }
 
+                    // 포스터 설명 텍스트 업데이트
+                    poster_name.Text = item.ITEMCNTNTS;
+                    poster.Text = "지역 설명";
+                }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message}");
+                Debug.WriteLine($"Error: {ex.Message}");
             }
+
+
         }
     }
 }

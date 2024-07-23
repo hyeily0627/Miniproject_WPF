@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Miniproject"
         mc:Ignorable="d"
-        x:Name="Busansearch" Title="검색화면" Height="450" Width="1400" Loaded="Busansearch_Loaded">
+        x:Name="Busansearch" Title="검색화면" Height="600" Width="1000" Loaded="Busansearch_Loaded">
 
     <!-- 바깥쪽 그리드 영역설정-->
     <Grid Background="DeepSkyBlue">
@@ -33,13 +33,12 @@
                 <DataGridTextColumn Binding="{Binding TRFC_INFO}" Header="교통정보" />
                 <DataGridTextColumn Binding="{Binding USAGE_AMOUNT}" Header="이용요금" />
                 <DataGridTextColumn Binding="{Binding MIDDLE_SIZE_RM1}" Header="편의시설" />
-                <DataGridTextColumn Binding="{Binding ITEMCNTNTS}" Header="상세정보" />
             </DataGrid.Columns>
         </DataGrid>
 
         <!-- 포스터 영역 -->
         <Grid Grid.Row="0" Grid.Column="1">
-            <GroupBox Header="포스터" Background="White" Foreground="White" Margin="10">
+            <GroupBox Header="포스터" Background="White" Foreground="White" Margin="10,10,10,4">
                 <GroupBox.HeaderTemplate>
                     <DataTemplate>
                         <Border Padding="5">
@@ -47,9 +46,24 @@
                         </Border>
                     </DataTemplate>
                 </GroupBox.HeaderTemplate>
-                <Image x:Name="ImgPoster" Source="No_Picture.png" Margin="15,0,15,0" Height="276" />
+
+                <StackPanel Margin="10">
+                    <Image x:Name="ImgPoster" Source="No_Picture.png" Height="189" RenderTransformOrigin="0.5,0.5" Width="546" >
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.682"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.988"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <TextBlock x:Name="poster" Margin="5" TextWrapping="Wrap" FontWeight="Bold" Foreground="black" />
+                    <TextBlock x:Name="poster_name" TextWrapping="Wrap" Foreground="black" Height="270" />
+                </StackPanel>
             </GroupBox>
         </Grid>
+
 
         <!-- 맨하단 상태바 위치 -->
         <StatusBar Grid.Row="1" Grid.ColumnSpan="3">
